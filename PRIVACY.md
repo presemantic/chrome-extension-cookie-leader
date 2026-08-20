@@ -1,14 +1,14 @@
-# Privacy Policy for HTTP Cookies Editor
+# Privacy Policy for Header Leader - HTTP Cookies Editor
 
 Effective date: August 20, 2026
 
-HTTP Cookies Editor is a local Chrome extension published by Presemantic. Its single purpose is to let a user view, create, edit, delete, clear, and restore HTTP cookies that match the URL of the active browser tab.
+Header Leader - HTTP Cookies Editor is a local Chrome extension published by Presemantic. Its single purpose is to let a user view, create, edit, delete, clear, and restore HTTP cookies that match the URL of the active browser tab.
 
 ## Data handling
 
 The extension processes cookie names, values, domains, paths, expiration settings, security attributes, partition keys, the active tab URL, and the active Chrome cookie-store identifier only inside the user's local Chrome profile. This information is used solely to provide the cookie-editor interface and the action explicitly selected by the user.
 
-HTTP Cookies Editor does not collect, log, transmit, sell, share, synchronize, or remotely process cookie data, browsing history, website content, personal information, authentication information, or analytics. It does not use remote code and does not send data to Presemantic or any third party.
+Header Leader - HTTP Cookies Editor does not collect, log, transmit, sell, share, synchronize, or remotely process cookie data, browsing history, website content, personal information, authentication information, or analytics. It does not use remote code and does not send data to Presemantic or any third party.
 
 ## Permissions
 

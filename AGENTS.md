@@ -1,4 +1,4 @@
-# HTTP Cookies Editor
+# Header Leader - HTTP Cookies Editor
 
 ## Purpose
 

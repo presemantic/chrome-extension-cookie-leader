@@ -2,7 +2,7 @@
 
 ## Product details
 
-- Name: `HTTP Cookies Editor`
+- Name: `Header Leader - HTTP Cookies Editor`
 - Language: `English`
 - Category: `Developer Tools`
 - Homepage: `https://www.presemantic.com/`
@@ -15,7 +15,7 @@ View, create, edit, delete, and restore cookies matching the active website in a
 
 ## Detailed description
 
-HTTP Cookies Editor gives developers a focused cookie editor directly from the Chrome toolbar.
+Header Leader - HTTP Cookies Editor gives developers a focused cookie editor directly from the Chrome toolbar.
 
 The popup displays only cookies that match the exact URL of the active tab. Select a cookie to inspect or edit its name, value, domain, path, expiry, SameSite setting, Secure and HttpOnly flags, session state, host-only scope, cookie-store ID, and partition key.
 
@@ -29,7 +29,7 @@ Features:
 - Search and automatic refresh
 - No analytics, tracking, remote code, or developer-side storage
 
-Cookie data never leaves the local Chrome profile. HTTP Cookies Editor does not collect, log, transmit, sell, share, or remotely process cookie values, browsing activity, or website content.
+Cookie data never leaves the local Chrome profile. Header Leader - HTTP Cookies Editor does not collect, log, transmit, sell, share, or remotely process cookie values, browsing activity, or website content.
 
 ## Single purpose
 

@@ -11,9 +11,9 @@ test("manifest exposes the popup and optional site-scoped cookie permissions", (
   const manifest = JSON.parse(fs.readFileSync(path.join(root, "manifest.json"), "utf8"));
 
   assert.equal(manifest.manifest_version, 3);
-  assert.equal(manifest.name, "HTTP Cookies Editor");
+  assert.equal(manifest.name, "Header Leader - HTTP Cookies Editor");
   assert.equal(manifest.action.default_popup, "popup.html");
-  assert.equal(manifest.action.default_title, "HTTP Cookies Editor");
+  assert.equal(manifest.action.default_title, "Header Leader - HTTP Cookies Editor");
   assert.ok(manifest.permissions.includes("cookies"));
   assert.ok(manifest.permissions.includes("activeTab"));
   assert.equal(manifest.permissions.includes("storage"), false);

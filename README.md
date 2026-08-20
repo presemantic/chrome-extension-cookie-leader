@@ -1,4 +1,4 @@
-# HTTP Cookies Editor
+# Header Leader - HTTP Cookies Editor
 
 Cookie Leader is a dependency-free Chrome Manifest V3 extension for viewing, adding, editing, deleting, clearing, and restoring cookies that match the exact URL of the active website tab. After clearing cookies, reload the website tab so its already-running page drops any session state held in memory.
 

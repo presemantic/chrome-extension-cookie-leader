@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
-  "name": "HTTP Cookies Editor",
-  "version": "0.1.8",
+  "name": "Header Leader - HTTP Cookies Editor",
+  "version": "0.1.9",
   "description": "View, add, edit, and delete cookies matching the active website.",
   "homepage_url": "https://www.presemantic.com/",
   "permissions": [
@@ -13,7 +13,7 @@
     "https://*/*"
   ],
   "action": {
-    "default_title": "HTTP Cookies Editor",
+    "default_title": "Header Leader - HTTP Cookies Editor",
     "default_popup": "popup.html",
     "default_icon": {
       "16": "icons/icon-16.png",
