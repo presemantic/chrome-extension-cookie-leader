@@ -13,6 +13,7 @@ This project is a dependency-free Chrome Manifest V3 extension for viewing and e
 - `tests/` contains dependency-free Node tests for cookie transformations and static UI contracts.
 - `PRIVACY.md` is the public Chrome Web Store privacy policy.
 - `STORE_LISTING.md` contains the canonical English listing copy, permission justifications, and privacy disclosures.
+- `store-assets/render-screenshot.mjs` renders the required 1280x800 Web Store screenshot with fictional cookie data; its generated PNG is stored beside it.
 - `LICENSE` contains the MIT license.
 
 ## Constraints
