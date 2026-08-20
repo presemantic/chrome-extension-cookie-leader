@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>HTTP Cookies Editor</title>
+    <link rel="stylesheet" href="popup.css">
+  </head>
+  <body>
+    <header class="popup-header">
+      <div class="brand" aria-label="Cookie Leader by www.presemantic.com">
+        <img class="brand-mark" src="icons/icon-32.png" alt="">
+        <span class="brand-name">Cookie Leader</span>
+        <a class="brand-detail" href="https://www.presemantic.com/" target="_blank" rel="noreferrer">by www.presemantic.com</a>
+      </div>
+      <div class="header-status">
+        <span id="saveStatus" class="save-status" role="status">READY</span>
+        <span id="siteHost" class="site-host">Current site</span>
+      </div>
+    </header>
+
+    <main class="workspace">
+      <aside class="cookies-panel">
+        <div class="panel-heading">
+          <h1>Cookies</h1>
+          <div class="heading-actions">
+            <button id="undoDelete" class="undo-action" type="button" disabled>UNDO</button>
+            <button id="addCookie" class="icon-action" type="button" aria-label="Add cookie" title="Add cookie">+</button>
+          </div>
+        </div>
+
+        <div class="list-toolbar">
+          <input id="cookieSearch" class="search-input" type="search" placeholder="Search cookies" autocomplete="off" spellcheck="false">
+          <span id="cookieCount" class="cookie-count">0</span>
+        </div>
+
+        <div class="cookie-list-shell">
+          <div id="cookieList" class="cookie-list" role="list"></div>
+          <div id="cookieListEmpty" class="list-empty" hidden>No cookies for this page.</div>
+          <div id="cookieScrollbar" class="custom-scrollbar" aria-hidden="true">
+            <div id="cookieScrollbarThumb" class="custom-scrollbar-thumb"></div>
+          </div>
+        </div>
+
+        <button id="clearCookies" class="clear-action" type="button" title="Clear all cookies matching this page" disabled>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M9 7V4h6v3m-8 0 1 13h8l1-13M10 11v5m4-5v5"/></svg>
+          Clear all
+        </button>
+      </aside>
+
+      <section class="editor-panel">
+        <div class="panel-heading editor-heading">
+          <h1>Cookie details</h1>
+          <button id="deleteCookie" class="delete-cookie" type="button" aria-label="Delete cookie" title="Delete cookie" disabled>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M9 7V4h6v3m-8 0 1 13h8l1-13M10 11v5m4-5v5"/></svg>
+          </button>
+        </div>
+
+        <div id="editorEmpty" class="editor-empty">
+          <p>Select a cookie or press + to create one.</p>
+        </div>
+
+        <form id="cookieForm" class="cookie-form" hidden>
+          <div class="field-grid primary-fields">
+            <label class="field">
+              <span>Name</span>
+              <input id="cookieName" type="text" autocomplete="off" spellcheck="false">
+            </label>
+            <label class="field">
+              <span>Value</span>
+              <textarea id="cookieValue" rows="3" spellcheck="false"></textarea>
+            </label>
+          </div>
+
+          <div class="field-grid two-columns">
+            <label class="field">
+              <span>Domain</span>
+              <input id="cookieDomain" type="text" autocomplete="off" spellcheck="false">
+              <small id="domainError" class="field-error"></small>
+            </label>
+            <label class="field">
+              <span>Path</span>
+              <input id="cookiePath" type="text" autocomplete="off" spellcheck="false">
+              <small id="pathError" class="field-error"></small>
+            </label>
+          </div>
+
+          <div class="field-grid two-columns">
+            <label class="field">
+              <span>SameSite</span>
+              <select id="cookieSameSite">
+                <option value="unspecified">Unspecified</option>
+                <option value="lax">Lax</option>
+                <option value="strict">Strict</option>
+                <option value="no_restriction">None</option>
+              </select>
+              <small id="sameSiteError" class="field-error"></small>
+            </label>
+            <label class="field">
+              <span>Expires</span>
+              <input id="cookieExpires" type="datetime-local">
+              <small id="expirationError" class="field-error"></small>
+            </label>
+          </div>
+
+          <div class="switch-grid">
+            <label class="option-switch"><input id="cookieSecure" type="checkbox"><span></span><strong>Secure</strong></label>
+            <label class="option-switch"><input id="cookieHttpOnly" type="checkbox"><span></span><strong>HttpOnly</strong></label>
+            <label class="option-switch"><input id="cookieSession" type="checkbox"><span></span><strong>Session</strong></label>
+            <label class="option-switch"><input id="cookieHostOnly" type="checkbox"><span></span><strong>Host only</strong></label>
+            <label class="option-switch"><input id="cookiePartitioned" type="checkbox"><span></span><strong>Partitioned</strong></label>
+          </div>
+
+          <div id="partitionFields" class="partition-fields" hidden>
+            <label class="field">
+              <span>Partition top-level site</span>
+              <input id="partitionTopLevelSite" type="url" placeholder="https://example.com">
+              <small id="partitionError" class="field-error"></small>
+            </label>
+            <label class="option-switch compact"><input id="hasCrossSiteAncestor" type="checkbox"><span></span><strong>Cross-site ancestor</strong></label>
+          </div>
+
+          <div class="metadata-row">
+            <span>Store ID</span>
+            <code id="cookieStoreId">0</code>
+            <span id="cookieKind">Host cookie</span>
+          </div>
+
+          <button id="saveCookie" class="save-cookie" type="submit">Save cookie</button>
+        </form>
+
+        <div id="accessState" class="access-state" hidden>
+          <h2>Cookie access required</h2>
+          <p>Chrome requires all-sites permission to expose parent-domain cookies. Cookie Leader will still show only cookies matching this page.</p>
+          <button id="grantAccess" class="grant-access" type="button">Allow cookie access</button>
+        </div>
+
+        <div id="unsupportedState" class="access-state" hidden>
+          <h2>Unsupported page</h2>
+          <p>Open an HTTP or HTTPS website, then click Cookie Leader again.</p>
+        </div>
+      </section>
+    </main>
+
+    <template id="cookieItemTemplate">
+      <div class="cookie-item" role="listitem">
+        <button class="cookie-open" type="button">
+          <span class="cookie-name"></span>
+        </button>
+        <button class="delete-cookie-row" type="button" aria-label="Delete cookie" title="Delete cookie">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M9 7V4h6v3m-8 0 1 13h8l1-13M10 11v5m4-5v5"/></svg>
+        </button>
+      </div>
+    </template>
+
+    <script src="core.js"></script>
+    <script src="popup.js"></script>
+  </body>
+</html>
