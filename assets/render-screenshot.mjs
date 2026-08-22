@@ -6,7 +6,7 @@ import { fileURLToPath } from "node:url";
 const require = createRequire(import.meta.url);
 const { chromium } = require("playwright");
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const output = path.join(root, "store-assets", "screenshot-1280x800.png");
+const output = path.join(root, "assets", "screenshot-1280x800.png");
 
 const popupHtml = await readFile(path.join(root, "popup.html"), "utf8");
 const popupCss = await readFile(path.join(root, "popup.css"), "utf8");

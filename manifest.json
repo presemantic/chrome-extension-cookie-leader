@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Header Leader - HTTP Cookies Editor",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "description": "View, add, edit, and delete cookies matching the active website.",
   "homepage_url": "https://www.presemantic.com/",
   "permissions": [

@@ -62,3 +62,10 @@ Chrome checks cookie access against the cookie's own domain. Optional HTTP(S) ho
 - Website content: not collected
 - Data sale or transfer: none
 - Remote code: none
+
+## Graphic assets
+
+- Store icon: `icons/icon-128.png` (128x128 PNG)
+- Screenshot: `assets/screenshot-1280x800.png`
+- Small promo tile: `assets/small.png` (440x280 PNG)
+- Marquee promo tile: `assets/merquee.png` (1400x560 PNG)
